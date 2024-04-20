@@ -11,23 +11,28 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            @if (Auth::user()->role == 'admin')
+            {{-- @if (Auth::user()->role == 'admin') --}}
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-light fa-house-user"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('scan.index') }}">
+                    <i class="fas fa-light fa-qrcode"></i>
+                    <span>Barcode</span></a>
+            </li>
+            </ul>
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.index') }}">
                     <i class="fas fa-light fa-user-plus"></i>
                     <span>Tambah User</span></a>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    {{-- <i class="fas fa-fw fa-cog"></i> --}}
                     <i class="fas fa-light fa-folder-plus"></i>
                     <span>Management</span>
                 </a>
@@ -40,14 +45,12 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-sharp fa-light fa-cart-arrow-down"></i>
                     <span>Pembelian Stock</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                 <i class="fas fa-sharp fa-light fa-handshake"></i>
@@ -61,7 +64,6 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-sharp fa-light fa-cart-arrow-down"></i>
@@ -89,19 +91,17 @@
                     <span>Umpan Balik</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-sharp fa-light fa-cart-arrow-down"></i>
                     <span>Pembelian Stock</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                 <i class="fas fa-sharp fa-light fa-handshake"></i>
                     <span>Penjualan / Penyewaan</span></a>
             </li>
 
-            @endif
-        </ul>
+            @endif --}}
+        
