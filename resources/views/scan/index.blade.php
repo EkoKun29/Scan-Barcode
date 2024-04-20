@@ -56,16 +56,24 @@
                                             <th>No.Induk</th>
                                             <th>No.Lot</th>
                                             <th>No.Seri</th>
+                                            <th>Jenis Tanaman</th>
+                                            <th>Varietas</th>
+                                            <th>No.Kelompok</th>
+
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                    <?php $no =1 ; ?>
                                     <tbody>
                                     @foreach ($scan as $u)
                                         <tr>
-                                            <td>{{ $forloop->counter }}</td>
-                                            <td>{{ $u->name }}</td>
-                                            <td>{{ $u->email }}</td>
-                                            <td>{{ $u->role }}</td>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $u->no_induk }}</td>
+                                            <td>{{ $u->no_lot }}</td>
+                                            <td>{{ $u->no_seri }}</td>
+                                            <td>{{ $u->jenis_tanaman }}</td>
+                                            <td>{{ $u->varietas }}</td>
+                                            <td>{{ $u->no_kelompok }}</td>
                                             <td></td>
                                         </tr>
                                     @endforeach

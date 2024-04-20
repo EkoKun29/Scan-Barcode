@@ -47,7 +47,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Tanggal Akhir Label</label>
-                                <input type="text" name="akhir" class="form-control" placeholder="Tanggal Akhir Label" required>
+                                <input type="date" name="akhir" class="form-control" placeholder="Tanggal Akhir Label" required>
                             </div>
                         </div>
                         <div class="col">
