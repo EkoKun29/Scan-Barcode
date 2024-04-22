@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Website - Login</title>
+    <link rel="shortcut icon" href="{{ asset ('assets/img/icon.ico')}}">
 
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,11 +37,14 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block" style="text-align: center;">
-                            <img src="../../assets/img/logo.png" alt="LOGO" width="70%" height="auto"></div>
+                            <img src="../../assets/img/logo.png" alt="LOGO" width="70%" height="auto">
+                             <h3 class="h4 text-gray-900 mb-4" style="font-family: Roboto; font-weight: bold;">PT ARINDO UTAMA PERKASA</h3></div>
+                           
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">PT ARINDO UTAMA PERKASA!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: Roboto; font-weight: bold;">Selamat Datang Silahkan Login</h1>
+
                                     </div>
                                     <form class="user" action="{{ route('_postlogin') }}" method="POST" autocomplete="off" novalidate>
                                     @csrf
@@ -54,7 +58,7 @@
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-footer">
-                                        <button type="submit" class="btn btn-primary w-100 btn-block">Sign in</button>
+                                        <button type="submit" class="btn btn-primary w-100 btn-block">LOGIN</button>
                                         </div>
                                     </form>
                                     <hr>

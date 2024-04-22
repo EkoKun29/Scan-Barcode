@@ -28,4 +28,6 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Scan
+Route::get('scan/{id}/delete', [App\Http\Controllers\QrCodeController::class, 'delete'])->name('scan.delete');
 Route::resource('scan', QrCodeController::class);
+

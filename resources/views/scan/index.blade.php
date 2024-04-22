@@ -59,7 +59,6 @@
                                             <th>Jenis Tanaman</th>
                                             <th>Varietas</th>
                                             <th>No.Kelompok</th>
-
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -74,7 +73,24 @@
                                             <td>{{ $u->jenis_tanaman }}</td>
                                             <td>{{ $u->varietas }}</td>
                                             <td>{{ $u->no_kelompok }}</td>
-                                            <td></td>
+                                            <td><div class="btn-list flex-nowrap">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-success dropdown-toggle align-text-top"
+                                                        data-bs-toggle="dropdown">
+                                                        Aksi
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <button class="dropdown-item text-warning" data-bs-toggle="modal"
+                                                            data-bs-target="#modal-edit-{{ $u->id }}">Edit</button>
+                                                        <button class="dropdown-item text-success" data-bs-toggle="modal"
+                                                            data-bs-target="#modal-edit-{{ $u->id }}">Cetak</button>
+                                                        <a href="{{ route('scan.delete', $u['id']) }}" id="btn-delete-post" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data {{ $u->varietas }} Ini ??')"
+                                                            value="Delete" class="dropdown-item text-danger">Hapus</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </td>
+                                            @include('scan.edit')
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -90,12 +106,29 @@
 @include('scan.create')
 @endsection
 
-{{-- @push('js')
+
+@push('js')
 <script>
-        document.getElementById('tambah-data-btn').addEventListener('click', function() {
-            var modal = new bootstrap.Modal(document.getElementById('modal-report'));
-            modal.show();
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.querySelector('input[aria-label="Search invoice"]');
+        const tableRows = document.querySelectorAll('.table tbody tr');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.trim().toLowerCase();
+
+            tableRows.forEach(row => {
+                const title = row.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
+                const description = row.querySelector('td:nth-child(3)').textContent.trim().toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
-    </script>
+    });
+</script>
+
     
-@endpush --}}
+@endpush
