@@ -3,7 +3,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Form Edit Data</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('scan.update', $u->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -20,8 +19,12 @@
                                 <input type="text" name="lot" class="form-control" placeholder="Nomor Lot" value="{{ $u->no_lot }}" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">No. Seri</label>
-                                <input type="text" name="seri" class="form-control" placeholder="Nomor Seri" value="{{ $u->no_seri }}" required>
+                                <label class="form-label">No. Seri Awal</label>
+                                <input type="text" name="seri_awal" class="form-control" placeholder="Nomor Seri Awal" value="{{ $u->no_seri }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">No. Seri Akhir</label>
+                                <input type="text" name="seri_akhir" class="form-control" placeholder="Nomor Seri Akhir" value="{{ $u->no_seri_akhir }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jenis Tanaman</label>

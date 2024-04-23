@@ -18,8 +18,12 @@
                                 <input type="text" name="lot" class="form-control" placeholder="Nomor Lot" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">No. Seri</label>
-                                <input type="text" name="seri" class="form-control" placeholder="Nomor Seri" required>
+                                <label class="form-label">No. Seri Awal</label>
+                                <input type="text" name="seri_awal" class="form-control" placeholder="Nomor Seri Awal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">No. Seri Akhir</label>
+                                <input type="text" name="seri_akhir" class="form-control" placeholder="Nomor Seri Akhir" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jenis Tanaman</label>

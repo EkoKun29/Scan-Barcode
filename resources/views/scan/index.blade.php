@@ -37,25 +37,49 @@
                     </ul>
 
                 </nav>
-<div class="container-fluid">
-<div class="card shadow mb-4">
-
+                <div class="container-fluid">
+                <div class="card shadow mb-4" >
+                <div class="card-body">
+                <h6 class="m-0 font-weight-bold text-primary">Export</h6>
+                            <div class="table-responsive">
+                        <form action="#" method="post">
+                            <div class="row justify-content-center py-4">
+                                @csrf
+                                <input type="hidden" name="type" value="penjualan">
+                                <div class="col-4">
+                                    <input type="date" class="form-control" name="start_date" required
+                                        value="<?php echo date('d-m-Y'); ?>">
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control" name="end_date">
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-success ms-auto">Download</button>
+                                </div>
+                            </div>
+                        </form>
+                         </div>
+                </div>
+                    </div>
+                </div>
+        <div class="container-fluid">
+        <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-    <h6 class="m-0 font-weight-bold text-primary">Data QrCode</h6>
-    <a href="#" class="btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modal-report">
-        <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data
-    </a>
-</div>
+                            <h6 class="m-0 font-weight-bold text-primary">Data QrCode</h6>
+                            <a href="#" class="btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modal-report">
+                                <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data
+                            </a>
+                        </div>
 
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            {{-- <div class="table-responsive"> --}}
+                                <table id="myTable" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>No.Induk</th>
-                                            <th>No.Lot</th>
-                                            <th>No.Seri</th>
+                                            <th>Tanggal Input</th>
+                                            <th>No.Seri Awal</th>
+                                            <th>No.Seri Akhir</th>
                                             <th>Jenis Tanaman</th>
                                             <th>Varietas</th>
                                             <th>No.Kelompok</th>
@@ -67,9 +91,9 @@
                                     @foreach ($scan as $u)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $u->no_induk }}</td>
-                                            <td>{{ $u->no_lot }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($u->created_at)->format('d-m-Y') }}</td>
                                             <td>{{ $u->no_seri }}</td>
+                                            <td>{{ $u->no_seri_akhir }}</td>
                                             <td>{{ $u->jenis_tanaman }}</td>
                                             <td>{{ $u->varietas }}</td>
                                             <td>{{ $u->no_kelompok }}</td>
@@ -95,7 +119,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                            {{-- </div> --}}
                              <div class="d-flex mt-3 justify-content-end">
                         {{ $scan->links() }}
                     </div>
@@ -108,27 +132,13 @@
 
 
 @push('js')
+ <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.querySelector('input[aria-label="Search invoice"]');
-        const tableRows = document.querySelectorAll('.table tbody tr');
-
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim().toLowerCase();
-
-            tableRows.forEach(row => {
-                const title = row.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
-                const description = row.querySelector('td:nth-child(3)').textContent.trim().toLowerCase();
-
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            searching: true, // Aktifkan pencarian
+            responsive: true // Aktifkan responsifitas
         });
     });
 </script>
-
-    
 @endpush

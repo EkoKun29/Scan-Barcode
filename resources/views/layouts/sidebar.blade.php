@@ -24,6 +24,12 @@
                     <span>Barcode</span></a>
             </li>
             </ul>
+            {{-- <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-light fa-file-excel"></i>
+                    <span>Export</span></a>
+            </li> --}}
+            
             {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.index') }}">
                     <i class="fas fa-light fa-user-plus"></i>
