@@ -1,18 +1,39 @@
+ <style>
+    .user-info {
+        display: flex;
+        align-items: center;
+        padding-top: 5px; /* Sesuaikan jarak teks ke bawah sejauh 5 piksel */
+    }
+
+    .user-image {
+        margin-right: 10px; /* Sesuaikan jarak antara gambar profil dengan nama pengguna */
+    }
+
+    .user-image img {
+        width: 60px; /* Sesuaikan lebar gambar profil */
+        height: 60px; /* Sesuaikan tinggi gambar profil */
+        border-radius: 20%; /* Membuat gambar profil menjadi lingkaran */
+        object-fit: cover; /* Memastikan gambar profil terpenuhi di dalam lingkaran */
+    }
+
+    .user-name {
+        font-size: 1.5em; /* Sesuaikan ukuran teks nama pengguna */
+    }
+
+</style>
+
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
+            <a class="sidebar-brand d-flex align-items-center user-info user-image" href="{{ route('home') }}">
+                
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="Arindo Logo" class="img-circle">
+                    <span class="sidebar-brand-text mx-2 user-name">{{ Auth::user()->name }}</span>
+                   
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            {{-- @if (Auth::user()->role == 'admin') --}}
-            <!-- Nav Item - Dashboard -->
+            
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-light fa-house-user"></i>
