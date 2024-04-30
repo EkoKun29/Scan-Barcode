@@ -38,11 +38,11 @@
     flex-direction: column;
 }
 
-.header-text h2, .header-text h4, .header-text span {
+.header-text h2, .header-text h3, .header-text span {
     margin: 5px 0; /* Atur margin atas dan bawah menjadi lebih kecil */
 }
 
-.header-text h4{
+.header-text h3{
     text-align: center;
 }
 
@@ -54,15 +54,15 @@
         font-size: 14px;
         margin: 5px 0;
     }
-    .header-text h4 {
-        font-size: 10px;
+    .header-text h3 {
+        font-size: 10px;    
         margin: 5px 0;
     }
     .header-text span {
         font-size: 11px;
         margin: 5px 0;
     }
-    .header-text h2, .header-text h4, .header-text span {
+    .header-text h2, .header-text h3, .header-text span {
         margin: 5px 0; /* Atur margin atas dan bawah */
         text-align: center;
 }
@@ -83,15 +83,14 @@
     <img src="{{ asset('assets/img/logo.png') }}" width="100" height="auto" alt="Logo Aliansyah" class="navbar-brand-image">
     <div class="header-text">
         <h2>BENIH BINA BERSERTIFIKAT</h2>
-        <h4>Nomor : {{ $qrCode->no_lot }}</h4>
+        <h3>Nomor : {{ $qrCode->no_lot }}</h3>
         <h2>PT. ARINDO UTAMA PERKASA</h2>
         <span>Alamat: Jl. Jakenan - Winong KM. 03 Jakenan - Pati</span>
     </div>
 </div>
-
+<hr style="border: 2px solid black;">
 </head>
 <body>
-<br>
 <h3 style="text-align: center;">INFORMASI BENIH UNGGUL BERSERTIFIKAT</h3>
 <table>
     <tr>
