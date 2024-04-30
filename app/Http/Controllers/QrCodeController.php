@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;
 use Endroid\QrCode\QrCode as EndroidQrCode;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RekapScan;
 
 
 
@@ -91,8 +93,14 @@ class QrCodeController extends Controller
         // Temukan QrCode berdasarkan UUID
         $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
 
-        // Redirect ke tampilan show dengan ID QrCode
-        // return redirect()->route('qrCode.show', $qrCode->id);
         return view('scan.show', compact('qrCode'));
+    }
+
+    public function download(Request $request){
+        $data       = $request->except('_token');
+        $start_date = $data['start_date'];
+        $end_date   = date('Y-m-d', strtotime($data['end_date'] . "+1 day"));
+
+        return Excel::download(new RekapScan($start_date, $end_date), 'scan-qrCode.xlsx');
     }
 }

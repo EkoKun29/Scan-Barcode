@@ -68,9 +68,6 @@
 }
 
 }
-
-
-
 </style>
 
 <!DOCTYPE html>
@@ -118,12 +115,16 @@
         <td class="green">{{ $qrCode->no_seri_akhir }}</td>
     </tr>
     <tr>
+        <td class="red">Tgl. Panen</td>
+        <td class="green">{{ \Carbon\Carbon::parse($qrCode->tanggal_panen)->format('d-m-Y') }}</td>
+    </tr>
+    <tr>
         <td class="red">Tgl. Selesai Uji</td>
-        <td class="green">{{ $qrCode->tanggal_selesai_uji }}</td>
+        <td class="green">{{ \Carbon\Carbon::parse($qrCode->tanggal_selesai_uji)->format('d-m-Y') }}</td>
     </tr>
     <tr>
         <td class="red">Tgl. Akhir Label</td>
-        <td class="green">{{ $qrCode->tanggal_akhir_label }}</td>
+        <td class="green">{{ \Carbon\Carbon::parse($qrCode->tanggal_akhir_label)->format('d-m-Y') }}</td>
     </tr>
     <tr>
         <td class="red">No. Induk</td>

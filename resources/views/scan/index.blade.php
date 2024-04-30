@@ -42,7 +42,7 @@
                 <div class="card-body">
                 <h6 class="m-0 font-weight-bold text-primary">Export</h6>
                             <div class="table-responsive">
-                        <form action="#" method="post">
+                        <form action="{{ route('scan.download') }}" method="post">
                             <div class="row justify-content-center py-4">
                                 @csrf
                                 <input type="hidden" name="type" value="penjualan">

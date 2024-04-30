@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('qr_codes', function (Blueprint $table) {
-            $table->float('kadar_air',8,2)->change();
-            $table->float('benih_murni',8,2)->change();
-            $table->float('camp_var_lain',8,2)->change();
-            $table->float('kotoran_benih',8,2)->change();
-            $table->float('benih_tanaman_lain',8,2)->change();
-            $table->float('daya_berkecambah',8,2)->change();
-            $table->float('biji_gulma',8,2)->change();
+            $table->float('kadar_air',8,2)->nullable()->change();
+            $table->float('benih_murni',8,2)->nullable()->change();
+            $table->float('camp_var_lain',8,2)->nullable()->change();
+            $table->float('kotoran_benih',8,2)->nullable()->change();
+            $table->float('benih_tanaman_lain',8,2)->nullable()->change();
+            $table->float('daya_berkecambah',8,2)->nullable()->change();
+            $table->float('biji_gulma',8,2)->nullable()->change();
         });
     }
 
@@ -28,13 +28,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('qr_codes', function (Blueprint $table) {
-            $table->float('kadar_air')->change();
-            $table->float('benih_murni')->change();
-            $table->float('camp_var_lain')->change();
-            $table->float('kotoran_benih')->change();
-            $table->float('benih_tanaman_lain')->change();
-            $table->float('daya_berkecambah')->change();
-            $table->float('biji_gulma')->change();
+            $table->float('kadar_air', 8, 2)->change();
+            $table->float('benih_murni', 8, 2)->change();
+            $table->float('camp_var_lain', 8, 2)->change();
+            $table->float('kotoran_benih', 8, 2)->change();
+            $table->float('benih_tanaman_lain', 8, 2)->change();
+            $table->float('daya_berkecambah', 8, 2)->change();
+            $table->float('biji_gulma', 8, 2)->change();
         });
     }
 };
