@@ -57,31 +57,31 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">Kadar Air</label>
-                                <input type="number" name="kadar" class="form-control" placeholder="Kadar Air" required>
+                                <input type="number" step="any" name="kadar" class="form-control" placeholder="Kadar Air" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Benih Murni</label>
-                                <input type="number" name="benih" class="form-control" placeholder="Benih Murni" required>
+                                <input type="number" step="any" name="benih" class="form-control" placeholder="Benih Murni" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Campuran Var Lain</label>
-                                <input type="number" name="campuran" class="form-control" placeholder="Campuran Var Lain" required>
+                                <input type="number" step="any" name="campuran" class="form-control" placeholder="Campuran Var Lain" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kotoran Benih</label>
-                                <input type="number" name="kotoran" class="form-control" placeholder="Kotoran Benih" required>
+                                <input type="number" step="any" name="kotoran" class="form-control" placeholder="Kotoran Benih" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Benih Tanaman Lain</label>
-                                <input type="number" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" required>
+                                <input type="number" step="any" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Daya Berkecambah</label>
-                                <input type="number" name="daya" class="form-control" placeholder="Daya Berkecambah" required>
+                                <input type="number" step="any" name="daya" class="form-control" placeholder="Daya Berkecambah" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Biji Gulma</label>
-                                <input type="number" name="biji" class="form-control" placeholder="Biji Gulma" required>
+                                <input type="number" step="any" name="biji" class="form-control" placeholder="Biji Gulma" required>
                             </div>
                         </div>
                     </div>

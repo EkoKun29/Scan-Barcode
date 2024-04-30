@@ -6,6 +6,9 @@ use App\Models\QrCode;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;
+use Endroid\QrCode\QrCode as EndroidQrCode;
+
+
 
 class QrCodeController extends Controller
 {
@@ -71,10 +74,25 @@ class QrCodeController extends Controller
     }
 
     public function delete($id)
-{
+    {
     $scan = QrCode::findOrFail($id); // Find the resource by its ID or throw a 404 error if not found
     $scan->delete(); // Delete the resource
     return redirect()->back()->with('success', 'Data berhasil dihapus');
-}
+    }
 
+    public function print($uuid)
+    {
+        $scan = QrCode::where('uuid', $uuid)->firstOrFail();
+        return view('scan.print', compact('scan'));
+    }
+
+    public function scan($uuid)
+    {
+        // Temukan QrCode berdasarkan UUID
+        $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
+
+        // Redirect ke tampilan show dengan ID QrCode
+        // return redirect()->route('qrCode.show', $qrCode->id);
+        return view('scan.show', compact('qrCode'));
+    }
 }

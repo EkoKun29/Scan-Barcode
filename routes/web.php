@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+// Route::view('scan/{uuid}', 'scan/show');
+Route::get('scan/{uuid}', [App\Http\Controllers\QrCodeController::class, 'scan'])->name('scan.qr');
 
 // Login
 Auth::routes();
@@ -28,6 +30,7 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Scan
+Route::get('scan/print/{uuid}', [App\Http\Controllers\QrCodeController::class, 'print'])->name('scan.print');
 Route::get('scan/{id}/delete', [App\Http\Controllers\QrCodeController::class, 'delete'])->name('scan.delete');
 Route::resource('scan', QrCodeController::class);
 

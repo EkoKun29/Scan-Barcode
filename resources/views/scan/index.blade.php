@@ -106,8 +106,7 @@
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <button class="dropdown-item text-warning" data-bs-toggle="modal"
                                                             data-bs-target="#modal-edit-{{ $u->id }}">Edit</button>
-                                                        <button class="dropdown-item text-success" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-edit-{{ $u->id }}">Cetak</button>
+                                                        <a href="{{ route('scan.print', $u['uuid']) }}" class="dropdown-item text-success">Cetak</a>
                                                         <a href="{{ route('scan.delete', $u['id']) }}" id="btn-delete-post" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data {{ $u->varietas }} Ini ??')"
                                                             value="Delete" class="dropdown-item text-danger">Hapus</a>
                                                     </div>
