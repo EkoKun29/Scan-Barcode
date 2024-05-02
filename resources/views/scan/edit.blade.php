@@ -58,31 +58,31 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">Kadar Air</label>
-                                <input type="number" name="kadar" class="form-control" placeholder="Kadar Air" value="{{ $u->kadar_air }}" required>
+                                <input type="number" step="any" name="kadar" class="form-control" placeholder="Kadar Air" value="{{ $u->kadar_air }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Benih Murni</label>
-                                <input type="number" name="benih" class="form-control" placeholder="Benih Murni" value="{{ $u->benih_murni }}" required>
+                                <input type="number" step="any" name="benih" class="form-control" placeholder="Benih Murni" value="{{ $u->benih_murni }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Campuran Var Lain</label>
-                                <input type="number" name="campuran" class="form-control" placeholder="Campuran Var Lain" value="{{ $u->camp_var_lain }}" required>
+                                <input type="number" step="any" name="campuran" class="form-control" placeholder="Campuran Var Lain" value="{{ $u->camp_var_lain }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kotoran Benih</label>
-                                <input type="number" name="kotoran" class="form-control" placeholder="Kotoran Benih" value="{{ $u->kotoran_benih }}" required>
+                                <input type="number" step="any" name="kotoran" class="form-control" placeholder="Kotoran Benih" value="{{ $u->kotoran_benih }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Benih Tanaman Lain</label>
-                                <input type="number" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" value="{{ $u->benih_tanaman_lain }}" required>
+                                <input type="number" step="any" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" value="{{ $u->benih_tanaman_lain }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Daya Berkecambah</label>
-                                <input type="number" name="daya" class="form-control" placeholder="Daya Berkecambah" value="{{ $u->daya_berkecambah }}" required>
+                                <input type="number" step="any" name="daya" class="form-control" placeholder="Daya Berkecambah" value="{{ $u->daya_berkecambah }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Biji Gulma</label>
-                                <input type="number" name="biji" class="form-control" placeholder="Biji Gulma" value="{{ $u->biji_gulma }}" required>
+                                <input type="number" step="any" name="biji" class="form-control" placeholder="Biji Gulma" value="{{ $u->biji_gulma }}" required>
                             </div>
                         </div>
                     </div>
