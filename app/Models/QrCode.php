@@ -25,4 +25,13 @@ class QrCode extends Model
     {
         return Carbon::parse($this->created_at)->format('d-m-Y');
     }
+
+//     public static function getBySerialRange($startSerial, $endSerial)
+// {
+//     return self::where('no_seri', '>=', $startSerial)
+//                 ->where('no_seri_akhir', '<=', $endSerial)
+//                 ->get();
+// }
+
+
 }

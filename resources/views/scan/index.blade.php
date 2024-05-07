@@ -37,7 +37,7 @@
                     </ul>
 
                 </nav>
-                <div class="container-fluid">
+                {{-- <div class="container-fluid">
                 <div class="card shadow mb-4" >
                 <div class="card-body">
                 <h6 class="m-0 font-weight-bold text-primary">Export</h6>
@@ -48,7 +48,7 @@
                                 <input type="hidden" name="type" value="penjualan">
                                 <div class="col-4">
                                     <input type="date" class="form-control" name="start_date" required
-                                        value="<?php echo date('d-m-Y'); ?>">
+                                        value="//">
                                 </div>
                                 <div class="col-4">
                                     <input type="date" class="form-control" name="end_date">
@@ -61,7 +61,7 @@
                          </div>
                 </div>
                     </div>
-                </div>
+                </div> --}}
         <div class="container-fluid">
         <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
@@ -107,6 +107,12 @@
                                                         <button class="dropdown-item text-warning" data-bs-toggle="modal"
                                                             data-bs-target="#modal-edit-{{ $u->id }}">Edit</button>
                                                         <a href="{{ route('scan.print', $u['uuid']) }}" class="dropdown-item text-success">Cetak</a>
+                                                        <form action="{{ route('scan.download') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="uuid" value="{{ $u->uuid }}">
+                                                        <button type="submit" class="dropdown-item text-info">Download</button>
+                                                    </form>
+
                                                         <a href="{{ route('scan.delete', $u['id']) }}" id="btn-delete-post" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data {{ $u->varietas }} Ini ??')"
                                                             value="Delete" class="dropdown-item text-danger">Hapus</a>
                                                     </div>

@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use Endroid\QrCode\QrCode as EndroidQrCode;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\RekapScan;
+use Illuminate\Support\Facades\Response;
+
 
 
 
@@ -96,11 +98,18 @@ class QrCodeController extends Controller
         return view('scan.show', compact('qrCode'));
     }
 
-    public function download(Request $request){
-        $data       = $request->except('_token');
-        $start_date = $data['start_date'];
-        $end_date   = date('Y-m-d', strtotime($data['end_date'] . "+1 day"));
+    public function download(Request $request)
+{
+    $uuid = $request->uuid;
 
-        return Excel::download(new RekapScan($start_date, $end_date), 'scan-qrCode.xlsx');
-    }
+    // Temukan QrCode berdasarkan UUID
+    $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
+
+    // Mengenerate nama file
+    $fileName = 'qrcode_' . $qrCode->id . '_data.xlsx';
+
+    // Mengunduh data sebagai file Excel
+    return Excel::download(new RekapScan($qrCode->id, $qrCode->uuid), $fileName);
+}
+
 }
