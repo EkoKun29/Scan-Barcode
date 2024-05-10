@@ -1,8 +1,9 @@
 echo "Deploying application ..."
 
 # Update codebase
-    git reset --hard
-    git pull origin main
+    git add .
+    git stash
+    git pull origin main --force
 
 # Install dependencies
 composer install --no-interaction --no-dev --prefer-dist
