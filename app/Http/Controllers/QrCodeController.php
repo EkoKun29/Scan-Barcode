@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Endroid\QrCode\QrCode as EndroidQrCode;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\RekapScan;
+use App\Exports\AllScan;
 use Illuminate\Support\Facades\Response;
 
 
@@ -110,28 +111,36 @@ class QrCodeController extends Controller
         return Excel::download(new RekapScan($qrCode->id, $qrCode->uuid), $fileName);
     }
 
-    public function search(Request $request)
-{
-    if ($request->has('search')) {
-        $searchTerm = $request->search;
-
-        $scan = QrCode::where(function ($query) use ($searchTerm) {
-            $query->where('no_seri', 'like', '%' . $searchTerm . '%')
-            ->orWhere('created_at', 'like', '%' . $searchTerm . '%')
-                ->orWhere('no_seri_akhir', 'like', '%' . $searchTerm . '%')
-                ->orWhere('jenis_tanaman', 'like', '%' . $searchTerm . '%')
-                ->orWhere('varietas', 'like', '%' . $searchTerm . '%')
-                ->orWhere('no_kelompok', 'like', '%' . $searchTerm . '%');
-        })
-        ->paginate(10);
-
-        // Keep the search term when paginating
-        $scan->appends(['search' => $searchTerm]);
-    } else {
-
+    public function downloadAll(Request $request){
+        
+        $data       = $request->except('_token');
+        $start_date = $data['start_date'];
+        $end_date   = date('Y-m-d', strtotime($data['end_date'] . "+1 day"));
+        return Excel::download(new AllScan($start_date, $end_date), 'Rekap-Barcode.xlsx');
     }
 
-    return view('scan.index', compact('scan'))->with('i', (request()->input('page', 1) - 1) * 10);
-}
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+
+            $scan = QrCode::where(function ($query) use ($searchTerm) {
+                $query->where('no_seri', 'like', '%' . $searchTerm . '%')
+                ->orWhere('created_at', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('no_seri_akhir', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('jenis_tanaman', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('varietas', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('no_kelompok', 'like', '%' . $searchTerm . '%');
+            })
+            ->paginate(10);
+
+            // Keep the search term when paginating
+            $scan->appends(['search' => $searchTerm]);
+        } else {
+
+        }
+
+        return view('scan.index', compact('scan'))->with('i', (request()->input('page', 1) - 1) * 10);
+    }
 
 }
