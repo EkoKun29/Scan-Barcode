@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Inventaris</title>
-    <style>
+    <title>Data Benih</title>
+    <style> 
         * {
             font-family: 'Times New Roman';
         }
