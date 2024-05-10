@@ -104,7 +104,7 @@ class QrCodeController extends Controller
         $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
 
         // Mengenerate nama file
-        $fileName = 'qrcode_' . $qrCode->id . '_data.xlsx';
+        $fileName = 'Barcode_Seri_' . $qrCode->no_seri . '.xlsx';
 
         // Mengunduh data sebagai file Excel
         return Excel::download(new RekapScan($qrCode->id, $qrCode->uuid), $fileName);
