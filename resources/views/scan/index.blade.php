@@ -70,11 +70,21 @@
                                 <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data
                             </a>
                         </div>
-
+                        <br>
+                               <form action="{{ route('scan.search') }}" class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                <div class="input-group">
+                                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search fa-fw"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         <div class="card-body">
-                            {{-- <div class="table-responsive"> --}}
-                                <table id="myTable" class="table table-bordered table-hover">
-                                    <thead>
+                                <div class="table-responsive">
+                                <table id="myTable" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                    <thead style="text-align:center">
                                         <tr>
                                             <th>#</th>
                                             <th>Tanggal Input</th>
@@ -90,14 +100,14 @@
                                     <tbody>
                                     @foreach ($scan as $u)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($u->created_at)->format('d-m-Y') }}</td>
+                                            <td style="text-align:center">{{ $no++ }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($u->created_at)->format('Y-m-d') }}</td>
                                             <td>{{ $u->no_seri }}</td>
                                             <td>{{ $u->no_seri_akhir }}</td>
                                             <td>{{ $u->jenis_tanaman }}</td>
                                             <td>{{ $u->varietas }}</td>
                                             <td>{{ $u->no_kelompok }}</td>
-                                            <td><div class="btn-list flex-nowrap">
+                                            <td style="text-align:center"><div class="btn-list flex-nowrap">
                                                 <div class="dropdown">
                                                     <button class="btn btn-outline-success dropdown-toggle align-text-top"
                                                         data-bs-toggle="dropdown">
@@ -124,7 +134,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                            {{-- </div> --}}
+                            </div>
                              <div class="d-flex mt-3 justify-content-end">
                         {{ $scan->links() }}
                     </div>
@@ -134,16 +144,12 @@
                     </div>
 @include('scan.create')
 @endsection
-
-
 @push('js')
- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable({
-            searching: true, // Aktifkan pencarian
-            responsive: true // Aktifkan responsifitas
+ <script>
+ new DataTable('#myTable', {
+            searchable: true,
+            fixedHeight: true
         });
-    });
-</script>
+        
+    </script>
 @endpush

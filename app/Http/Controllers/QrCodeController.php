@@ -12,8 +12,6 @@ use App\Exports\RekapScan;
 use Illuminate\Support\Facades\Response;
 
 
-
-
 class QrCodeController extends Controller
 {
     public function index(){
@@ -99,17 +97,41 @@ class QrCodeController extends Controller
     }
 
     public function download(Request $request)
+    {
+        $uuid = $request->uuid;
+
+        // Temukan QrCode berdasarkan UUID
+        $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
+
+        // Mengenerate nama file
+        $fileName = 'qrcode_' . $qrCode->id . '_data.xlsx';
+
+        // Mengunduh data sebagai file Excel
+        return Excel::download(new RekapScan($qrCode->id, $qrCode->uuid), $fileName);
+    }
+
+    public function search(Request $request)
 {
-    $uuid = $request->uuid;
+    if ($request->has('search')) {
+        $searchTerm = $request->search;
 
-    // Temukan QrCode berdasarkan UUID
-    $qrCode = QrCode::where('uuid', $uuid)->firstOrFail();
+        $scan = QrCode::where(function ($query) use ($searchTerm) {
+            $query->where('no_seri', 'like', '%' . $searchTerm . '%')
+            ->orWhere('created_at', 'like', '%' . $searchTerm . '%')
+                ->orWhere('no_seri_akhir', 'like', '%' . $searchTerm . '%')
+                ->orWhere('jenis_tanaman', 'like', '%' . $searchTerm . '%')
+                ->orWhere('varietas', 'like', '%' . $searchTerm . '%')
+                ->orWhere('no_kelompok', 'like', '%' . $searchTerm . '%');
+        })
+        ->paginate(10);
 
-    // Mengenerate nama file
-    $fileName = 'qrcode_' . $qrCode->id . '_data.xlsx';
+        // Keep the search term when paginating
+        $scan->appends(['search' => $searchTerm]);
+    } else {
 
-    // Mengunduh data sebagai file Excel
-    return Excel::download(new RekapScan($qrCode->id, $qrCode->uuid), $fileName);
+    }
+
+    return view('scan.index', compact('scan'))->with('i', (request()->input('page', 1) - 1) * 10);
 }
 
 }

@@ -87,7 +87,7 @@
     </style>
 </head>
 <body>
-<img src="https://quickchart.io/chart?chs=139x139&cht=qr&chl=http://127.0.0.1:8000/scan/{{ $scan->uuid }}"/>
+<img src="https://quickchart.io/chart?chs=139x139&cht=qr&chl=https://barcode.arindoutamaperkasa.com/scan/{{ $scan->uuid }}"/>
 
 <script>
         window.print();

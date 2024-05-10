@@ -33,6 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('scan/print/{uuid}', [App\Http\Controllers\QrCodeController::class, 'print'])->name('scan.print');
 Route::get('scan/{id}/delete', [App\Http\Controllers\QrCodeController::class, 'delete'])->name('scan.delete');
 Route::post('scan/download', [App\Http\Controllers\QrCodeController::class, 'download'])->name('scan.download');
+Route::get('search', [App\Http\Controllers\QrCodeController::class, 'search'])->name('scan.search');
 Route::resource('scan', QrCodeController::class);
 
 
