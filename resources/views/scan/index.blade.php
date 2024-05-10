@@ -40,7 +40,7 @@
                 <div class="container-fluid">
                 <div class="card shadow mb-4" >
                 <div class="card-body">
-                <h6 class="m-0 font-weight-bold text-primary">Export</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Export Rekap Barcode Benih</h6>
                             <div class="table-responsive">
                         <form action="{{ route('scan.download-all') }}" method="post">
                             <div class="row justify-content-center py-4">
