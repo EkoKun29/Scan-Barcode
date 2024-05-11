@@ -30,6 +30,10 @@
                                 <input type="text" name="jenis" class="form-control" placeholder="Jenis Tanaman" required>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Kelas Benih</label>
+                                <input type="text" name="kelas" class="form-control" placeholder="Kelas Benih" required>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Varietas</label>
                                 <input type="text" name="varietas" class="form-control" placeholder="Varietas" required>
                             </div>
@@ -72,16 +76,12 @@
                                 <input type="number" step="any" name="kotoran" class="form-control" placeholder="Kotoran Benih" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Benih Tanaman Lain</label>
+                                <label class="form-label">Benih Tanaman Lain / Biji Gulma</label>
                                 <input type="number" step="any" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Daya Berkecambah</label>
                                 <input type="number" step="any" name="daya" class="form-control" placeholder="Daya Berkecambah" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Biji Gulma</label>
-                                <input type="number" step="any" name="biji" class="form-control" placeholder="Biji Gulma" required>
                             </div>
                         </div>
                     </div>

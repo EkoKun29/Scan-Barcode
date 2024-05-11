@@ -95,6 +95,10 @@
         <td class="green">{{ $qrCode->jenis_tanaman }}</td>
     </tr>
     <tr>
+        <td class="red">Kelas Benih</td>
+        <td class="green">{{ $qrCode->kelas_benih }}</td>
+    </tr>
+    <tr>
         <td class="red">Varietas</td>
         <td class="green">{{ $qrCode->varietas }}</td>
     </tr>
@@ -147,16 +151,12 @@
         <td class="yellow">{{ $qrCode->kotoran_benih }} %</td>
     </tr>
     <tr>
-        <td class="red">Benih Tanaman Lain</td>
+        <td class="red">Benih Tanaman Lain / Biji Gulma</td>
         <td class="yellow">{{ $qrCode->benih_tanaman_lain }} %</td>
     </tr>
     <tr>
         <td class="red">Daya Berkecambah</td>
         <td class="yellow">{{ $qrCode->daya_berkecambah }} %</td>
-    </tr>
-    <tr>
-        <td class="red">Biji Gulma</td>
-        <td class="yellow">{{ $qrCode->biji_gulma }} %</td>
     </tr>
 </table>
 </body>

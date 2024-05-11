@@ -33,6 +33,7 @@ class QrCodeController extends Controller
         $scan->no_seri_akhir         = $request->seri_akhir;
         $scan->jenis_tanaman         = $request->jenis;
         $scan->varietas              = $request->varietas;
+        $scan->kelas_benih           = $request->kelas;
         $scan->no_kelompok           = $request->kelompok;
         $scan->berat_bersih          = $request->berat;
         $scan->tanggal_panen         = $request->panen;
@@ -44,7 +45,6 @@ class QrCodeController extends Controller
         $scan->kotoran_benih         = $request->kotoran;
         $scan->benih_tanaman_lain    = $request->benih_lain;
         $scan->daya_berkecambah      = $request->daya;
-        $scan->biji_gulma            = $request->biji;
         $scan->save();
         return redirect()->route('scan.index')->with('success', 'User berhasil di tambahkan');
     }
@@ -59,6 +59,7 @@ class QrCodeController extends Controller
         $scan->no_seri_akhir         = $request->seri_akhir;
         $scan->jenis_tanaman         = $request->jenis;
         $scan->varietas              = $request->varietas;
+        $scan->kelas_benih           = $request->kelas;
         $scan->no_kelompok           = $request->kelompok;
         $scan->berat_bersih          = $request->berat;
         $scan->tanggal_panen         = $request->panen;
@@ -70,7 +71,6 @@ class QrCodeController extends Controller
         $scan->kotoran_benih         = $request->kotoran;
         $scan->benih_tanaman_lain    = $request->benih_lain;
         $scan->daya_berkecambah      = $request->daya;
-        $scan->biji_gulma            = $request->biji;
         $scan->save();
 
         return redirect()->route('scan.index')->with('success', 'Data berhasil diperbarui!');

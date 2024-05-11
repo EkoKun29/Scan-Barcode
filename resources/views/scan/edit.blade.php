@@ -27,6 +27,10 @@
                                 <input type="text" name="jenis" class="form-control" placeholder="Jenis Tanaman" value="{{ $u->jenis_tanaman }}" required>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Kelas Benih</label>
+                                <input type="text" name="kelas" class="form-control" placeholder="Kelas Benih" value="{{ $u->kelas_benih }}" required>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Varietas</label>
                                 <input type="text" name="varietas" class="form-control" placeholder="Varietas" value="{{ $u->varietas }}" required>
                             </div>
@@ -69,17 +73,17 @@
                                 <input type="number" step="any" name="kotoran" class="form-control" placeholder="Kotoran Benih" value="{{ $u->kotoran_benih }}" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Benih Tanaman Lain</label>
+                                <label class="form-label">Benih Tanaman Lain / Biji Gulma</label>
                                 <input type="number" step="any" name="benih_lain" class="form-control" placeholder="Benih Tanaman Lain" value="{{ $u->benih_tanaman_lain }}" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Daya Berkecambah</label>
                                 <input type="number" step="any" name="daya" class="form-control" placeholder="Daya Berkecambah" value="{{ $u->daya_berkecambah }}" required>
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label class="form-label">Biji Gulma</label>
                                 <input type="number" step="any" name="biji" class="form-control" placeholder="Biji Gulma" value="{{ $u->biji_gulma }}" required>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
