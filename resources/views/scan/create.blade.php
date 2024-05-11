@@ -13,10 +13,10 @@
                                 <label class="form-label">No. Induk</label>
                                 <input type="text" name="induk" class="form-control" placeholder="Nomor Induk" required>
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label class="form-label">No. Lot</label>
                                 <input type="text" name="lot" class="form-control" placeholder="Nomor Lot" required>
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
                                 <label class="form-label">No. Seri Awal</label>
                                 <input type="text" name="seri_awal" class="form-control" placeholder="Nomor Seri Awal" required>

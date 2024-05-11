@@ -66,7 +66,7 @@ class RekapScan implements FromCollection, WithHeadings, ShouldAutoSize, WithMap
     public function map($scan): array
 {
     return [
-        route('scan.print', $this->uuid),
+        route('scan.qr', $this->uuid),
         $scan->no_induk,
         $scan->no_lot,
         $scan->no_seri,

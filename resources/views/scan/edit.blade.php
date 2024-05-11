@@ -15,10 +15,6 @@
                                 <input type="text" name="induk" class="form-control" placeholder="Nomor Induk" value="{{ $u->no_induk }}" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">No. Lot</label>
-                                <input type="text" name="lot" class="form-control" placeholder="Nomor Lot" value="{{ $u->no_lot }}" required>
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">No. Seri Awal</label>
                                 <input type="text" name="seri_awal" class="form-control" placeholder="Nomor Seri Awal" value="{{ $u->no_seri }}" required>
                             </div>
@@ -99,3 +95,5 @@
         </div>
     </div>
 </div>
+
+
