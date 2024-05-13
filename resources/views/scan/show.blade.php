@@ -75,7 +75,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BENIH BINA BERSERTIFIKAT</title>
+<title>BENIH BERSERTIFIKAT</title>
 <div class="header-container">
     <img src="{{ asset('assets/img/logo.png') }}" width="100" height="auto" alt="Logo Aliansyah" class="navbar-brand-image">
     <div class="header-text">

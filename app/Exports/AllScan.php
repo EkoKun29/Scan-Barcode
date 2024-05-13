@@ -80,7 +80,7 @@ class AllScan implements FromCollection, WithHeadings, ShouldAutoSize, WithMappi
     public function map($header): array
     {
         return [
-            route('scan.print', $header->uuid),
+            route('scan.qr', $header->uuid),
             $header->no_induk,
             $header->no_lot,
             $header->no_seri,
