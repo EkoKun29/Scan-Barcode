@@ -79,7 +79,7 @@
 <div class="header-container">
     <img src="{{ asset('assets/img/logo.png') }}" width="100" height="auto" alt="Logo Aliansyah" class="navbar-brand-image">
     <div class="header-text">
-        <h2 style="text-align:center">BENIH BERSERTIFIKAT</h2>
+        <h2>BENIH UNGGUL BERSERTIFIKAT</h2>
         <h3>Nomor : {{ $qrCode->no_lot }}</h3>
         <h2>PT. ARINDO UTAMA PERKASA</h2>
         <span>Alamat: Jl. Jakenan - Winong KM. 03 Jakenan - Pati</span>
