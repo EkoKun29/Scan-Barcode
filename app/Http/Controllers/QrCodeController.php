@@ -28,7 +28,7 @@ class QrCodeController extends Controller
     public function store(Request $request){
         $scan                        = new QrCode();
         $scan->no_induk              = $request->induk;
-        $scan->no_lot                = "LSSM-10-B2";
+        $scan->no_lot                = "LSSM-10-B3";
         $scan->no_seri               = $request->seri_awal;
         $scan->no_seri_akhir         = $request->seri_akhir;
         $scan->jenis_tanaman         = $request->jenis;
